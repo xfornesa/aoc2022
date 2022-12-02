@@ -33,6 +33,15 @@ class InputReader {
                 }
         }
 
+        fun asListOfPairsStringString(fileName: String): List<Pair<String, String>> {
+            return File("src/test/resources/aoc/${fileName}")
+                .useLines { it.toList() }
+                .map {
+                    val split = it.split(" ")
+                    Pair(split[0], split[1])
+                }
+        }
+
         fun asListOfPairsOfListString(fileName: String): List<Pair<List<String>, List<String>>> {
             return File("src/test/resources/aoc/${fileName}")
                 .useLines { it.toList() }
